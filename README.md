@@ -1,4 +1,4 @@
-# [Build A Restaurant Viewing App](https://www.youtube.com/watch?v=cwBBe_rfTd8)
+<h1><a href="https://www.youtube.com/watch?v=cwBBe_rfTd8" target="_blank">Build A Restaurant Viewing App</a></h1>
 
 ## Demo
 
