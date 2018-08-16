@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aW6-mP-PM2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,11 +12,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="LocationView" customModule="RestaurantApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -64,6 +64,9 @@
                                                 <integer key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="allowAction:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="lxQ-25-dZk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehr-Ec-HoT">
                                         <rect key="frame" x="32" y="58" width="311" height="50"/>
@@ -76,6 +79,9 @@
                                                 <integer key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="denyAction:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="csC-rm-Ymd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="8" left="32" bottom="8" right="32"/>
@@ -92,7 +98,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lFX-66-EHy" secondAttribute="trailing" id="zT5-bx-YPJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="allowButton" destination="RgW-1s-XeH" id="4kz-p1-0oL"/>
+                            <outlet property="denyButton" destination="Ehr-Ec-HoT" id="TyM-V0-w3o"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="locationView" destination="8bC-Xf-vdC" id="Fym-QZ-OIM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,13 +114,13 @@
         <!--Restaurants-->
         <scene sceneID="kdl-1h-dXW">
             <objects>
-                <tableViewController id="e3p-Re-qWR" sceneMemberID="viewController">
+                <tableViewController id="e3p-Re-qWR" customClass="RestaurantTableViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XcP-ha-qZc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="215" id="uFM-2n-q0n">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="215" id="uFM-2n-q0n" customClass="RestaurantTableViewCell" customModule="RestaurantApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="215"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uFM-2n-q0n" id="pgS-NN-U3D">
@@ -172,16 +185,16 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="locationLabel" destination="ILC-rc-3xb" id="CLf-PU-npA"/>
+                                    <outlet property="makerImageView" destination="8rb-3T-PI5" id="POW-x5-5HE"/>
+                                    <outlet property="restaurantImageView" destination="YMc-oU-d6J" id="7Jd-Gb-jIt"/>
+                                    <outlet property="restaurantNameLabel" destination="xlN-a3-Y9p" id="5C6-NH-whQ"/>
                                     <segue destination="aW6-mP-PM2" kind="show" id="JMt-fQ-YCl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="e3p-Re-qWR" id="b9m-TY-UZ2"/>
-                            <outlet property="delegate" destination="e3p-Re-qWR" id="acG-UK-tbN"/>
-                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Restaurants" id="mju-8w-1K6"/>
+                    <navigationItem key="navigationItem" title="Restaurants" id="auE-VZ-QKr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00x-tQ-EvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,8 +203,8 @@
         <!--Title-->
         <scene sceneID="Px7-RI-1MW">
             <objects>
-                <viewController id="aW6-mP-PM2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uXu-ub-cPp">
+                <viewController id="aW6-mP-PM2" customClass="DetailsFoodViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uXu-ub-cPp" customClass="DetailsFoodView" customModule="RestaurantApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -347,6 +360,15 @@
                             <constraint firstItem="hex-cu-UEl" firstAttribute="leading" secondItem="uUI-ry-dv3" secondAttribute="leading" id="wL4-Ho-TxF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uUI-ry-dv3"/>
+                        <connections>
+                            <outlet property="collectionView" destination="7ED-EM-yPx" id="QmV-vd-GTf"/>
+                            <outlet property="hoursLabel" destination="6G7-FD-myL" id="qOT-5f-9Zg"/>
+                            <outlet property="locationLabel" destination="VYi-Ku-jSA" id="yYT-ja-dT4"/>
+                            <outlet property="mapView" destination="Cc7-dK-VsE" id="wM1-VY-FAh"/>
+                            <outlet property="pageControl" destination="FgU-sk-afv" id="lAg-Hp-7r8"/>
+                            <outlet property="priceLabel" destination="ZeN-bN-VQn" id="kaa-iQ-YoO"/>
+                            <outlet property="ratingsLabel" destination="GRT-SH-f0A" id="Y6Z-S1-cQT"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="uVn-BQ-T4Y"/>
                     <size key="freeformSize" width="375" height="1024"/>
