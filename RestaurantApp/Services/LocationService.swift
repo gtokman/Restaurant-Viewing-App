@@ -30,7 +30,7 @@ final class LocationService: NSObject {
         return CLLocationManager.authorizationStatus()
     }
 
-    func requestLocation() {
+    func requestLocationAuthorization() {
         manager.requestWhenInUseAuthorization()
     }
 
