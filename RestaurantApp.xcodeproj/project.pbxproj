@@ -16,6 +16,7 @@
 		20040280211A8E1100021D83 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004027F211A8E1100021D83 /* LocationView.swift */; };
 		20040282211A8E7400021D83 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20040281211A8E7400021D83 /* LocationViewController.swift */; };
 		20230F9521A128B000F5D136 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20230F9421A128B000F5D136 /* LocationService.swift */; };
+		2037C68A21AE3EBB00A5134F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037C68921AE3EBB00A5134F /* Models.swift */; };
 		2063715D21AA53A4002C1B4F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2063715C21AA53A4002C1B4F /* NetworkService.swift */; };
 		C8068260E7A3CE777166E341 /* Pods_RestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E516E51991BE03F7123BC /* Pods_RestaurantApp.framework */; };
 		DABD10E52043A01B00D7DE13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD10E42043A01B00D7DE13 /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		2004027F211A8E1100021D83 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		20040281211A8E7400021D83 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		20230F9421A128B000F5D136 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2037C68921AE3EBB00A5134F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2063715C21AA53A4002C1B4F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4465F126BAFC8AB1C8B0620A /* Pods-RestaurantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.debug.xcconfig"; sourceTree = "<group>"; };
 		79DA82A86A711227D972D9BA /* Pods-RestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				2004027A211A8CBD00021D83 /* Views */,
 				20040278211A8CB800021D83 /* RestaurantTableViewController.swift */,
+				2037C68921AE3EBB00A5134F /* Models.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				2063715D21AA53A4002C1B4F /* NetworkService.swift in Sources */,
 				2004026F211A8A9A00021D83 /* BaseView.swift in Sources */,
 				20040280211A8E1100021D83 /* LocationView.swift in Sources */,
+				2037C68A21AE3EBB00A5134F /* Models.swift in Sources */,
 				20230F9521A128B000F5D136 /* LocationService.swift in Sources */,
 				20040273211A8B0500021D83 /* DetailsFoodView.swift in Sources */,
 				20040279211A8CB800021D83 /* RestaurantTableViewController.swift in Sources */,
