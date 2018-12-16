@@ -9,11 +9,12 @@
 import Foundation
 import Moya
 
-private let apiKey = "ADD YOU API KEY"
+private let apiKey = "Add Your Key"
 
 enum YelpService {
     enum BusinessesProvider: TargetType {
         case search(lat: Double, long: Double)
+        case details(id: String)
         
         var baseURL: URL {
             return URL(string: "https://api.yelp.com/v3/businesses")!
@@ -23,6 +24,8 @@ enum YelpService {
             switch self {
             case .search:
                 return "/search"
+            case let .details(id):
+                return "/\(id)"
             }
         }
 
@@ -39,6 +42,8 @@ enum YelpService {
             case let .search(lat, long):
                 return .requestParameters(
                     parameters: ["latitude": lat, "longitude": long, "limit": 10], encoding: URLEncoding.queryString)
+            case .details:
+                return .requestPlain
             }
             
         }

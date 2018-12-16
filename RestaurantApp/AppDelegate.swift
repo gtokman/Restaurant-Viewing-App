@@ -21,6 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        service.request(.details(id: "WavvLdfdP6g8aZTtbBQHTw")) { (result) in
+            switch result {
+            case .success(let response):
+                let details = try? self.jsonDecoder.decode(Details.self, from: response.data)
+                print("Details: \n\n \(details)")
+            case .failure(let error):
+                print("Failed to get details \(error)")
+            }
+        }
+
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
         locationService.didChangeStatus = { [weak self] success in
