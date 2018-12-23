@@ -9,7 +9,8 @@
 import Foundation
 import Moya
 
-private let apiKey = "Add Your Key"
+#error("Enter a Yelp API key by visiting yelp.com/developers then delete this error.")
+private let apiKey = ""
 
 enum YelpService {
     enum BusinessesProvider: TargetType {
