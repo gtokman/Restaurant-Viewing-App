@@ -70,3 +70,24 @@ extension CLLocationCoordinate2D: Decodable {
         self.init(latitude: latitude, longitude: longitude)
     }
 }
+
+
+struct DetailsViewModel {
+    let price: String
+    let isOpen: String
+    let phoneNumber: String
+    let rating: String
+    let imageUrls: [URL]
+    let coordinate: CLLocationCoordinate2D
+}
+
+extension DetailsViewModel {
+    init(details: Details) {
+        self.price = details.price
+        self.isOpen = details.isClosed ? "Closed" : "Open"
+        self.phoneNumber = details.phone
+        self.rating = "\(details.rating) / 5"
+        self.imageUrls = details.photos
+        self.coordinate = details.coordinates
+    }
+}

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let service = MoyaProvider<YelpService.BusinessesProvider>()
     let jsonDecoder = JSONDecoder()
+    var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -46,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         default:
             let nav = storyboard
                 .instantiateViewController(withIdentifier: "RestaurantNavigationController") as? UINavigationController
+            self.navigationController = nav
             window.rootViewController = nav
             locationService.getLocation()
             (nav?.topViewController as? RestaurantTableViewController)?.delegete = self
@@ -55,13 +57,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    private func loadDetais(withId id: String) {
+    private func loadDetails(withId id: String) {
         service.request(.details(id: id)) { [weak self] (result) in
             switch result {
             case .success(let response):
                 guard let strongSelf = self else { return }
-                let details = try? strongSelf.jsonDecoder.decode(Details.self, from: response.data)
-                print("Details: \n\n \(details)")
+                if let details = try? strongSelf.jsonDecoder.decode(Details.self, from: response.data) {
+                    let detailsViewModel = DetailsViewModel(details: details)
+                    (strongSelf.navigationController?.topViewController as? DetailsFoodViewController)?.viewModel = detailsViewModel
+                }
             case .failure(let error):
                 print("Failed to get details \(error)")
             }
@@ -94,6 +98,6 @@ extension AppDelegate: LocationActions, ListActions {
     }
 
     func didTapCell(_ viewModel: RestaurantListViewModel) {
-        loadDetais(withId: viewModel.id)
+        loadDetails(withId: viewModel.id)
     }
 }
